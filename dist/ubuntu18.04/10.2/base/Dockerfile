@@ -20,6 +20,11 @@ cuda-compat-10-2 && \
 ln -s cuda-10.2 /usr/local/cuda && \
     rm -rf /var/lib/apt/lists/*
 
+RUN apt-get install python==3.7
+RUN apt-get install python-pip
+RUN apt install python3-opencv
+RUN pip install tensorflow==2.1, Pillow, Scipy, matplotlib, argparse, socket
+
 # Required for nvidia-docker v1
 RUN echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
