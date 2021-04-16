@@ -40,7 +40,7 @@ unsupported:
 
 
 .requires_v11.2.2: &cuda11_2_2_requires
-  requires: "cuda>=11.2 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441 driver>=450,driver<451"
+  requires: "cuda>=11.2 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441 driver>=450,driver<460"
 
 
 .components_v11.2.2: &cuda11_2_2_components
@@ -237,7 +237,7 @@ cuda_v11.2.2:
 
 
 .requires_v11.2.1: &cuda11_2_1_requires
-  requires: "cuda>=11.2 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441 driver>=450,driver<451"
+  requires: "cuda>=11.2 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441 driver>=450,driver<460"
 
 
 .components_v11.2.1: &cuda11_2_1_components
@@ -434,7 +434,7 @@ cuda_v11.2.1:
 
 
 .requires_v11.2.0: &cuda11_2_0_requires
-  requires: "cuda>=11.2 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441 driver>=450,driver<451"
+  requires: "cuda>=11.2 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441 driver>=450,driver<460"
 
 
 .components_v11.2.0: &cuda11_2_0_components
@@ -631,7 +631,7 @@ cuda_v11.2.0:
 
 
 .requires_v11.1.1: &cuda11_1_1_requires
-  requires: "cuda>=11.1 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441 driver>=450,driver<451"
+  requires: "cuda>=11.1 brand=tesla,driver>=418,driver<419 brand=tesla,driver>=440,driver<441 driver>=450,driver<455"
 
 
 .components_v11.1.1: &cuda11_1_1_components
