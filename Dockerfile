@@ -16,7 +16,7 @@ RUN wget -O $HOME/.docker/cli-plugins/docker-buildx $BUILDX_URL
 
 RUN chmod a+x $HOME/.docker/cli-plugins/docker-buildx
 
-RUN python3 -m ensurepip
+RUN python3.8 -m ensurepip
 
 RUN rm -r /usr/lib/python*/ensurepip
 
