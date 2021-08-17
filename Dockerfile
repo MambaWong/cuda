@@ -8,7 +8,7 @@ ENV DOCKER_CLI_EXPERIMENTAL enabled
 
 ENV BUILDX_URL https://github.com/docker/buildx/releases/download/v0.5.1/buildx-v0.5.1.linux-amd64
 
-RUN apk add --no-cache wget git bash findutils python3 python3-dev curl g++ libmagic skopeo jq
+RUN apk add --no-cache wget git bash findutils python3.8 python3.8-dev curl g++ libmagic skopeo jq
 
 RUN mkdir -p $HOME/.docker/cli-plugins/
 
@@ -24,7 +24,7 @@ RUN pip3 install --upgrade pip setuptools
 
 RUN if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
 
-RUN if [ ! -e /usr/bin/python ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi
+RUN if [ ! -e /usr/bin/python ]; then ln -sf /usr/bin/python3.8 /usr/bin/python; fi
 
 RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 
