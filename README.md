@@ -67,15 +67,15 @@ Here is an example on how to build an multi-arch container image for UBI8 and CU
 #
 IMAGE_NAME="nvcr.io/nvidia/cuda"
 CUDA_VERSION="11.4.1"
-OS="ubi8"
-ARCHES="x86_64, arm64, ppc64le"
+OS="ubuntu18.04"
+ARCHES="x86_64"
 PLATFORM_ARG=`printf '%s ' '--platform'; for var in $(echo $ARCHES | sed "s/,/ /g"); do printf 'linux/%s,' "$var"; done | sed 's/,*$//g'`
 
 cp NGC-DL-CONTAINER-LICENSE dist/${CUDA_VERSION}/${OS}/base/
 
 docker buildx build --load ${PLATFORM_ARG} -t "${IMAGE_NAME}:${CUDA_VERSION}-base-${OS}" "dist/${CUDA_VERSION}/${OS}/base"
-docker buildx build --load ${PLATFORM_ARG} -t "${IMAGE_NAME}:${CUDA_VERSION}-runtime-${OS}" --build-arg "IMAGE_NAME=${IMAGE_NAME}" "dist/${CUDA_VERSION}/${OS}/runtime"
 docker buildx build --load ${PLATFORM_ARG} -t "${IMAGE_NAME}:${CUDA_VERSION}-devel-${OS}" --build-arg "IMAGE_NAME=${IMAGE_NAME}" "dist/${CUDA_VERSION}/${OS}/devel"
+docker buildx build --load ${PLATFORM_ARG} -t "${IMAGE_NAME}:${CUDA_VERSION}-devel-${OS}-cudnn8" --build-arg "IMAGE_NAME=${IMAGE_NAME}" "dist/${CUDA_VERSION}/${OS}/devel/cudnn8"
 ```
 
 ## Cuda Container Image Automation
