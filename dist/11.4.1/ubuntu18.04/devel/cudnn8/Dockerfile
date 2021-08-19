@@ -9,6 +9,10 @@ ENV NV_CUDNN_PACKAGE "libcudnn8=$NV_CUDNN_VERSION-1+cuda11.4"
 ENV NV_CUDNN_PACKAGE_DEV "libcudnn8-dev=$NV_CUDNN_VERSION-1+cuda11.4"
 ENV NV_CUDNN_PACKAGE_NAME "libcudnn8"
 
+# qzk Env vars for the nvidia-container-runtime.
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+
 FROM base-${TARGETARCH}
 
 ARG TARGETARCH
@@ -21,3 +25,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ${NV_CUDNN_PACKAGE_DEV} \
     && apt-mark hold ${NV_CUDNN_PACKAGE_NAME} && \
     rm -rf /var/lib/apt/lists/*
+
+# qzk
+RUN apt-get update \
+  && apt-get install -y -qq --no-install-recommends \
+    libglvnd0 \
+    libgl1 \
+    libglx0 \
+    libegl1 \
+    libxext6 \
+    libx11-6 \
+  && rm -rf /var/lib/apt/lists/*
